@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /checkout/
+Disallow: /cart/
+Disallow: /user-data/
+Disallow: /search-results/
+
+Sitemap: https://www.marbleledgers.com/sitemap_4489671.xml
