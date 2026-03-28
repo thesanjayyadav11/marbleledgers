@@ -27,12 +27,33 @@
 // Mobile Menu
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
+
 if (hamburger && navMenu) {
     hamburger.addEventListener('click', function() {
         const expanded = navMenu.classList.toggle('active');
         hamburger.setAttribute('aria-expanded', expanded);
     });
 }
+
+// ✅ Close menu on nav link click (FIX)
+const navLinks = document.querySelectorAll('.nav-link');
+
+navLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+        if (navMenu && hamburger) {
+            navMenu.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
+    });
+});
+
+// Remove hash and scroll to top on reload
+window.addEventListener('load', function () {
+    if (window.location.hash) {
+        history.replaceState(null, null, ' ');
+        window.scrollTo(0, 0);
+    }
+});
 
 // FAQ
 document.querySelectorAll('.faq-item').forEach(function(item) {
@@ -206,3 +227,20 @@ window.addEventListener("load", function () {
         }
     }
 });
+
+// top hero text 
+const badgeTexts = [
+    "Welcome to Marble Ledgers",
+    "Simplify Your Stone Business",
+    "Smart Inventory & Accounting",
+    "Built for Marble Traders",
+    "Your Digital Partner in Stone Industry"
+];
+
+let currentIndex = 0;
+const badgeElement = document.getElementById("badgeText");
+
+setInterval(() => {
+    currentIndex = (currentIndex + 1) % badgeTexts.length;
+    badgeElement.textContent = badgeTexts[currentIndex];
+}, 5000);

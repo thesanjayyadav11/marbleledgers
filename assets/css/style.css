@@ -138,7 +138,7 @@ html {
 .logo img {
     width: 40px;
     height: auto;
-    filter: var(--logo-filter);
+    filter: none;
 }
 
 .nav-menu {
@@ -146,6 +146,7 @@ html {
     align-items: center;
     gap: 1.8rem;
     list-style: none;
+    transition: all 0.7s ease;
 }
 
 .nav-link {
@@ -409,6 +410,17 @@ html {
     color: var(--text-light);
 }
 
+.tagline {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(); /* light theme */
+    margin: 10px 0;
+}
+
+[data-theme="dark"] .tagline {
+    color: #ccc;
+}
+
 .hero-image {
     flex: 1;
     min-width: 250px;
@@ -601,6 +613,7 @@ html {
     left: -5%;
     animation: ctaFloat 6s ease-in-out infinite reverse;
 }
+
 
 @keyframes ctaFloat {
 
